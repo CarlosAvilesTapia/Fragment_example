@@ -5,4 +5,5 @@
     <string name="show">Show</string>
     <string name="enter_url">Enter URL</string>
     <string name="exit">Exit</string>
+    <string name="back">Back</string>
 </resources>

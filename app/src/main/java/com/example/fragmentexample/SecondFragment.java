@@ -4,12 +4,15 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.fragmentexample.databinding.FragmentSecondBinding;
+
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -66,12 +69,14 @@ public class SecondFragment extends Fragment {
 
         binding = FragmentSecondBinding.inflate(getLayoutInflater(), container,false);
 
-        binding.exitButton.setOnClickListener(new View.OnClickListener() {
+        binding.webView.loadUrl(mParam1);
 
-            @Override
-            public void onClick(View v) {
+        // Botón back no funciona en teléfono.
+        binding.backButton.setOnClickListener(v -> {
 
-            }
+            FragmentManager fm = getActivity().getSupportFragmentManager();
+            fm.popBackStack();
+
         });
 
         return binding.getRoot();
